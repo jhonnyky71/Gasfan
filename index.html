@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>GASFAN</title>
+
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+            rel="stylesheet"
+        />
+
+        <style>
+            * {
+                font-family: "Poppins", sans-serif;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            .hero-bg {
+                background:
+                    radial-gradient(
+                        circle at top left,
+                        rgba(34, 197, 94, 0.15),
+                        transparent 30%
+                    ),
+                    radial-gradient(
+                        circle at bottom right,
+                        rgba(59, 130, 246, 0.15),
+                        transparent 30%
+                    ),
+                    linear-gradient(
+                        135deg,
+                        #1f2937 0%,
+                        #374151 50%,
+                        #111827 100%
+                    );
+            }
+            .glass {
+                backdrop-filter: blur(12px);
+                background: rgba(255, 255, 255, 0.08);
+                border: 1px solid rgba(255, 255, 255, 0.15);
+            }
+
+            .floating {
+                animation: float 4s ease-in-out infinite;
+            }
+
+            @keyframes float {
+                0%,
+                100% {
+                    transform: translateY(0px);
+                }
+                50% {
+                    transform: translateY(-10px);
+                }
+            }
+            #modalImage {
+                animation: zoomIn 0.3s ease;
+            }
+
+            @keyframes zoomIn {
+                from {
+                    transform: scale(0.8);
+                    opacity: 0;
+                }
+                to {
+                    transform: scale(1);
+                    opacity: 1;
+                }
+            }
+            #qrcode {
+                display: flex;
+                justify-content: center;
+            }
+        </style>
+    </head>
+    <body class="bg-slate-50">
+        <!-- NAVBAR -->
+        <header class="fixed top-0 w-full bg-white shadow-md z-50">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="flex items-center justify-between h-20">
+                    <!-- Logo -->
+                    <img src="image/logo.png" alt="GASFON" class="h-12" />
+
+                    <!-- Menú Desktop -->
+                    <nav
+                        class="fixed top-0 left-0 w-full bg-white shadow-lg z-50"
+                    >
+                        <div class="max-w-7xl mx-auto px-6">
+                            <div class="flex items-center justify-between h-20">
+                                <!-- Logo -->
+                                <a
+                                    href="#inicio"
+                                    class="text-2xl font-bold text-green-800"
+                                >
+                                    GASFAN
+                                </a>
+
+                                <!-- Menú escritorio -->
+                                <div class="hidden md:flex items-center gap-8">
+                                    <a
+                                        href="#inicio"
+                                        class="hover:text-green-500"
+                                        >Inicio</a
+                                    >
+                                    <a
+                                        href="#productos"
+                                        class="hover:text-green-500"
+                                        >Productos</a
+                                    >
+                                    <a
+                                        href="#contacto"
+                                        class="hover:text-green-500"
+                                        >Contacto</a
+                                    >
+
+                                    <a
+                                        href="https://wa.me/573117001560"
+                                        target="_blank"
+                                        class="bg-green-500 text-white px-5 py-2 rounded-lg"
+                                    >
+                                        WhatsApp
+                                    </a>
+                                </div>
+
+                                <!-- Botón hamburguesa -->
+                                <button id="menu-btn" class="md:hidden p-2">
+                                    <svg
+                                        class="w-8 h-8"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M4 6h16M4 12h16M4 18h16"
+                                        />
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <!-- Menú móvil -->
+                            <div id="mobile-menu" class="hidden md:hidden pb-5">
+                                <div class="flex flex-col gap-4 pt-4 border-t">
+                                    <a href="#inicio" class="py-2"> Inicio </a>
+
+                                    <a href="#productos" class="py-2">
+                                        Productos
+                                    </a>
+
+                                    <a href="#contacto" class="py-2">
+                                        Contacto
+                                    </a>
+
+                                    <a
+                                        href="https://wa.me/573117001560"
+                                        target="_blank"
+                                        class="bg-green-500 text-white text-center py-3 rounded-xl"
+                                    >
+                                        Pedir por WhatsApp
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <!-- HERO -->
+        <section
+            id="inicio"
+            class="min-h-screen bg-gray-800 relative overflow-hidden flex items-center"
+        >
+            <!-- Efectos de fondo -->
+            <div
+                class="absolute top-0 left-0 w-96 h-96 bg-green-500/20 rounded-full blur-3xl"
+            ></div>
+
+            <div
+                class="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"
+            ></div>
+
+            <div class="max-w-7xl mx-auto px-6 py-32 relative z-10">
+                <div class="grid lg:grid-cols-2 gap-10 items-center">
+                    <!-- Texto -->
+                    <div>
+                        <span
+                            class="inline-flex items-center gap-2 bg-green-500/20 border border-green-500/30 text-green-400 px-4 py-2 rounded-full text-sm font-medium"
+                        >
+                            Servicio a domicilio en Bello
+                        </span>
+
+                        <h1
+                            class="mt-8 text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight"
+                        >
+                            Gas seguro para tu
+                            <span
+                                class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-cyan-400 to-blue-500"
+                            >
+                                hogar y negocio
+                            </span>
+                        </h1>
+                        <p class="text-gray-400 text-lg mt-6 max-w-xl">
+                            Distribución de cilindros de gas con entrega rápida,
+                            atención personalizada y la confianza que tu familia
+                            necesita.
+                        </p>
+
+                        <div class="flex flex-wrap gap-4 mt-10">
+                            <a
+                                href="https://wa.me/573117001560"
+                                target="_blank"
+                                class="bg-green-500 hover:bg-green-600 transition px-8 py-4 rounded-xl text-white font-semibold shadow-lg shadow-green-500/30"
+                            >
+                                Pedir por WhatsApp
+                            </a>
+
+                            <a
+                                href="#productos"
+                                class="border border-white/20 hover:border-white/40 text-white px-8 py-4 rounded-xl backdrop-blur-sm transition"
+                            >
+                                Ver Cilindros
+                            </a>
+                        </div>
+
+                        <!-- Estadísticas -->
+                        <div class="flex gap-8 mt-12">
+                            <div>
+                                <h3 class="text-3xl font-bold text-white">
+                                    Servicio Confiable
+                                </h3>
+                                <p class="text-green-300 font-medium">
+                                    Atención rápida y personalizada
+                                </p>
+                                <p class="text-gray-200">
+                                    Lunes a Sábado · 7:00 AM - 9:00 PM
+                                </p>
+                                <p class="text-gray-200">
+                                    Domingos · 8:00 AM - 8:00 PM
+                                </p>
+                                <p class="text-gray-200">
+                                    Festivos · 8:00 AM - 6:00 PM
+                                </p>
+                            </div>
+                            <div>
+                                <h3 class="text-3xl font-bold text-white">
+                                    100%
+                                </h3>
+                                <p class="text-gray-200">Seguridad</p>
+                            </div>
+
+                            <div>
+                                <h3 class="text-3xl font-bold text-white">
+                                    +1000
+                                </h3>
+                                <p class="text-gray-200">Clientes</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Imagen -->
+                    <!-- Columna derecha -->
+                    <div class="flex flex-col items-center gap-6">
+                        <!-- Imagen -->
+                        <div
+                            class="relative bg-gradient-to-b from-slate-900 to-slate-800 p-8 rounded-[40px] border border-white/10 shadow-2xl"
+                        >
+                            <div
+                                class="absolute inset-0 bg-gradient-to-tr from-green-500/10 to-blue-500/10 rounded-[40px]"
+                            ></div>
+
+                            <img
+                                src="image/img02.png"
+                                alt="Cilindros GASFON"
+                                class="relative z-10 w-[420px] lg:w-[500px]"
+                            />
+                        </div>
+
+                        <!-- QR -->
+                        <div
+                            class="bg-white rounded-3xl p-4 text-center shadow-xl"
+                        >
+                            <div id="qrcode" class="flex justify-center"></div>
+
+                            <p class="mt-2 text-gray-700 font-medium">
+                                Escanea para realizar tu pedido
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BENEFICIOS -->
+        <section id="beneficios" class="py-24">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-slate-900">
+                        ¿Por qué elegir GASFAN?
+                    </h2>
+
+                    <p class="text-gray-600 mt-4">
+                        Confianza, seguridad y servicio para nuestros clientes.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-3xl shadow-lg">
+                        <div class="text-5xl mb-4">🛡️</div>
+                        <h3 class="font-bold text-2xl mb-3">Seguridad</h3>
+                        <p class="text-gray-600">
+                            Cilindros certificados y revisados para garantizar
+                            la seguridad de tu familia.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-3xl shadow-lg">
+                        <div class="text-5xl mb-4">🚚</div>
+                        <h3 class="font-bold text-2xl mb-3">Entrega Rápida</h3>
+                        <p class="text-gray-600">
+                            Servicio a domicilio con tiempos de respuesta
+                            eficientes.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-3xl shadow-lg">
+                        <div class="text-5xl mb-4">⭐</div>
+                        <h3 class="font-bold text-2xl mb-3">Atención</h3>
+                        <p class="text-gray-600">
+                            Atención personalizada y asesoría para elegir el
+                            cilindro adecuado.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRODUCTOS -->
+        <section id="productos" class="py-24 bg-slate-100">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold">Nuestros Cilindros</h2>
+
+                    <p class="text-gray-600 mt-4">
+                        Soluciones para hogares, negocios e industria.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-white rounded-3xl overflow-hidden shadow-lg">
+                        <img
+                            src="image/img04.png"
+                            class="gallery-img w-full h-60 object-cover cursor-pointer"
+                        />
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl">
+                                10 - 20 - 40 - 100 Libras
+                            </h3>
+                            <p class="text-gray-600 mt-2 text-justify">
+                                La solución perfecta para cada necesidad. Desde
+                                pequeños negocios hasta grandes operaciones
+                                industriales, tenemos el cilindro adecuado para
+                                ti.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-3xl overflow-hidden shadow-lg">
+                        <img
+                            src="image/img02.png"
+                            class="gallery-img w-full h-60 object-cover cursor-pointer"
+                        />
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl">40 Libras</h3>
+                            <p class="text-gray-600 mt-2">
+                                Perfecto para uso doméstico.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-3xl overflow-hidden shadow-lg">
+                        <img
+                            src="image/img01.png"
+                            class="gallery-img w-full h-60 object-cover cursor-pointer"
+                        />
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl">
+                                Información Técnica
+                            </h3>
+                            <p class="text-gray-600 mt-2">
+                                Componentes y seguridad del cilindro.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-3xl overflow-hidden shadow-lg">
+                        <img
+                            src="image/img03.jpg"
+                            class="gallery-img w-full h-60 object-cover cursor-pointer"
+                        />
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl">Gas Seguro</h3>
+                            <p class="text-gray-600 mt-2">
+                                Energía confiable para tu hogar y negocio.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEGURIDAD -->
+        <section class="py-24">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <img
+                            src="image/img01.png"
+                            class="rounded-3xl shadow-2xl"
+                        />
+                    </div>
+
+                    <div>
+                        <span class="text-blue-600 font-bold"> SEGURIDAD </span>
+
+                        <h2 class="text-4xl font-bold mt-3">
+                            Revisa siempre tu cilindro
+                        </h2>
+
+                        <p class="text-gray-600 mt-6">
+                            Verifica la válvula, número de identificación, fecha
+                            de fabricación y estado general del cilindro. La
+                            seguridad es nuestra prioridad.
+                        </p>
+
+                        <div class="mt-8">
+                            <a
+                                href="https://wa.me/573117001560"
+                                target="_blank"
+                                class="bg-green-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold"
+                            >
+                                Solicitar Servicio
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section id="contacto" class="py-24 bg-gray-700 text-white">
+            <div class="max-w-5xl mx-auto px-6 text-center">
+                <h2 class="text-5xl font-bold">¿Necesitas gas hoy?</h2>
+
+                <p class="mt-6 text-xl">
+                    Contáctanos y recibe tu pedido a domicilio.
+                </p>
+
+                <div class="mt-10 flex flex-wrap justify-center gap-4">
+                    <a
+                        href="https://wa.me/573117001560"
+                        target="_blank"
+                        class="bg-green-500 hover:bg-green-600 px-8 py-4 rounded-xl font-bold"
+                    >
+                        WhatsApp: 311 700 15 60
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="bg-slate-950 text-gray-400">
+            <div class="max-w-7xl mx-auto px-6 py-10">
+                <div class="text-center">
+                    <img src="image/logo.png" class="h-16 mx-auto mb-4" />
+
+                    <p>Confianza • Seguridad • Servicio</p>
+
+                    <p class="mt-4 text-sm">
+                        © <span id="year"></span> GASFAN. Todos los derechos
+                        reservados.
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Modal Imagen -->
+        <div
+            id="imageModal"
+            class="fixed inset-0 bg-black/90 hidden items-center justify-center z-50 p-4"
+        >
+            <span
+                id="closeModal"
+                class="absolute top-5 right-8 text-white text-5xl cursor-pointer"
+            >
+                &times;
+            </span>
+
+            <img
+                id="modalImage"
+                class="max-w-full max-h-[90vh] rounded-2xl shadow-2xl"
+                src=""
+                alt=""
+            />
+        </div>
+
+        <script>
+            document.getElementById("year").textContent =
+                new Date().getFullYear();
+        </script>
+
+        <script>
+            const modal = document.getElementById("imageModal");
+            const modalImage = document.getElementById("modalImage");
+            const closeModal = document.getElementById("closeModal");
+
+            document.querySelectorAll(".gallery-img").forEach((img) => {
+                img.addEventListener("click", () => {
+                    modal.classList.remove("hidden");
+                    modal.classList.add("flex");
+                    modalImage.src = img.src;
+                });
+            });
+
+            closeModal.addEventListener("click", () => {
+                modal.classList.add("hidden");
+                modal.classList.remove("flex");
+            });
+
+            modal.addEventListener("click", (e) => {
+                if (e.target === modal) {
+                    modal.classList.add("hidden");
+                    modal.classList.remove("flex");
+                }
+            });
+        </script>
+        <!-- qr -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+        <script>
+            new QRCode(document.getElementById("qrcode"), {
+                text: "https://wa.me/573117001560",
+                width: 180,
+                height: 180,
+            });
+        </script>
+        <script>
+            const menuBtn = document.getElementById("menu-btn");
+            const mobileMenu = document.getElementById("mobile-menu");
+
+            menuBtn.addEventListener("click", () => {
+                mobileMenu.classList.toggle("hidden");
+            });
+
+            // Cerrar menú al hacer clic en un enlace
+            document.querySelectorAll("#mobile-menu a").forEach((link) => {
+                link.addEventListener("click", () => {
+                    mobileMenu.classList.add("hidden");
+                });
+            });
+        </script>
+    </body>
+</html>
